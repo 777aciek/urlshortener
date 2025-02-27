@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>URL Shortener</title>
+</head>
+<body>
+    <h1>Podaj adres, który chcesz skrócić</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}  <!-- Formularz, w tym pole do wpisania redirect_to -->
+        <button type="submit">Zapisz</button>
+    </form>
+
+    <hr>  <!-- Przerwa między formularzem a tabelą -->
+
+    <h2>Historia:</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Path</th>
+                <th>Redirect To</th>
+                <th>Shortened URL</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for url in urls %}
+                <tr>
+                    <td>{{ url.path }}</td>
+                    <td><a href="{{ url.redirect_to }}" target="_blank">{{ url.redirect_to }}</a></td>
+                    <td><a href="{{ url.shortened_url }}" target="_blank">{{ url.shortened_url }}</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
