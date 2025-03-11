@@ -10,7 +10,7 @@ def clear_urls(db):
 
 
 @pytest.mark.django_db
-def test_generate_path_length(clear_urls):
+def test_generate_path_length():
     instance = Urls()
 
     path = instance.generate_path()
