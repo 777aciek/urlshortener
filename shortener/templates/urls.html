@@ -3,6 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>URL Shortener</title>
+    <style>
+        /* Stylizacja przycisku "Wyloguj się" */
+        .logout-btn {
+            position: absolute;
+            top: 10px;     /* Odstęp od góry */
+            right: 10px;   /* Odstęp od prawej */
+            padding: 10px 20px;  /* Wewnętrzne odstępy w przycisku */
+            background-color: #f44336; /* Kolor tła przycisku */
+            color: white;  /* Kolor tekstu */
+            border: none;  /* Brak obramowania */
+            border-radius: 5px;  /* Zaokrąglone rogi */
+            cursor: pointer;  /* Zmiana kursora na rękę przy najechaniu */
+        }
+
+        /* Zmiana koloru przycisku po najechaniu */
+        .logout-btn:hover {
+            background-color: #d32f2f;
+        }
+    </style>
 </head>
 <body>
     <h1>Podaj adres, który chcesz skrócić</h1>
@@ -11,6 +30,11 @@
         {{ form.as_p }}  <!-- Formularz, w tym pole do wpisania redirect_to -->
         <button type="submit">Zapisz</button>
     </form>
+
+    {% if new_shortened_url %}
+        <h2>Twój skrócony link:</h2>
+        <p><a href="{{ new_shortened_url }}" target="_blank">{{ new_shortened_url }}</a></p>
+    {% endif %}
 
     <hr>  <!-- Przerwa między formularzem a tabelą -->
 
@@ -33,5 +57,11 @@
             {% endfor %}
         </tbody>
     </table>
+
+     <!-- Przycisk do wylogowania -->
+     <form action="{% url 'logout' %}" method="POST" class="logout-form">
+        {% csrf_token %}
+        <button type="submit" class="logout-btn">Wyloguj się</button>
+    </form>
 </body>
 </html>
