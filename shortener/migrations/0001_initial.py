@@ -7,17 +7,27 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Urls',
+            name="Urls",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('path', models.CharField(editable=False, max_length=8, unique=True)),
-                ('redirect_to', models.URLField()),
-                ('shortened_url', models.CharField(blank=True, max_length=150, null=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("path", models.CharField(editable=False, max_length=8, unique=True)),
+                ("redirect_to", models.URLField()),
+                (
+                    "shortened_url",
+                    models.CharField(blank=True, max_length=150, null=True),
+                ),
             ],
         ),
     ]
