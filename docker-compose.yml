@@ -2,15 +2,15 @@
 services:
 
   db:
-    image: postgres:14
+    image: postgres:17.4
     #container_name: db
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     environment:
       - "POSTGRES_HOST_AUTH_METHOD=trust"
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=${SECRET_KEY}
+      - POSTGRES_USER=${SECRET_KEY}
+      - POSTGRES_PASSWORD=${SECRET_KEY}
     ports:
       - "5432:5432"
     networks:
@@ -25,9 +25,9 @@ services:
     depends_on:
       - db
     environment:
-      - DB_NAME=postgres
-      - DB_USER=postgres
-      - DB_PASSWORD=postgres
+      - DB_NAME=${SECRET_KEY}
+      - DB_USER=${SECRET_KEY}
+      - DB_PASSWORD=${SECRET_KEY}
       - DB_HOST=db
     networks:
       - app_network
