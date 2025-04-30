@@ -1,5 +1,7 @@
 from django.db import models
-import string, random
+import string, random, logging
+
+logger = logging.getLogger(__name__)
 
 
 class Urls(models.Model):
@@ -10,17 +12,23 @@ class Urls(models.Model):
     def save(self, *args, **kwargs):
         if not self.path:
             self.path = self.generate_path()
+            logger.debug(f"Generated path: {self.path}")
+
         self.shortened_url = f"http://127.0.0.1:8000/{self.path}"
+        logger.debug(f"Generated shortened URL: {self.shortened_url}")
 
         if not Urls.objects.filter(redirect_to=self.redirect_to).exists():
+            logger.info(
+                f"Saving new URL: {self.shortened_url} redirecting to {self.redirect_to}"
+            )
             super().save(*args, **kwargs)
-        else:
-            pass
 
     def generate_path(self):
+        logger.debug("Starting path generation...")
         while True:
             path = "".join(random.choices(string.ascii_letters + string.digits, k=8))
             if not Urls.objects.filter(path=path).exists():
+                logger.debug(f"Unique path generated: {path}")
                 return path
 
 

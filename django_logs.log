@@ -1,0 +1,17 @@
+DEBUG 2025-04-09 19:09:35,447 models models.py 26 Starting path generation...
+DEBUG 2025-04-09 19:09:35,448 models models.py 30 Unique path generated: U7N8mb2Q
+DEBUG 2025-04-09 19:09:35,448 models models.py 14 Generated path: U7N8mb2Q
+DEBUG 2025-04-09 19:09:35,448 models models.py 17 Generated shortened URL: http://127.0.0.1:8000/U7N8mb2Q
+INFO 2025-04-09 19:09:35,449 models models.py 20 Saving new URL: http://127.0.0.1:8000/U7N8mb2Q redirecting to https://chatgpt.com/
+WARNING 2025-04-09 19:28:12,953 views views.py 28 URL with redirect https://chatgpt.com/ already exists. Skipping save.
+WARNING 2025-04-09 19:28:49,088 views views.py 28 URL with redirect https://chatgpt.com/ already exists. Skipping save.
+DEBUG 2025-04-09 19:29:22,062 models models.py 24 Starting path generation...
+DEBUG 2025-04-09 19:29:22,062 models models.py 28 Unique path generated: FHPI4o3J
+DEBUG 2025-04-09 19:29:22,063 models models.py 14 Generated path: FHPI4o3J
+DEBUG 2025-04-09 19:29:22,063 models models.py 17 Generated shortened URL: http://127.0.0.1:8000/FHPI4o3J
+INFO 2025-04-09 19:29:22,064 models models.py 20 Saving new URL: http://127.0.0.1:8000/FHPI4o3J redirecting to https://youtu.be/NcfJ6YFQSRY?si=uTJdKIK2mHLdL6Lz
+DEBUG 2025-04-30 15:45:40,510 models models.py 24 Starting path generation...
+DEBUG 2025-04-30 15:45:40,512 models models.py 28 Unique path generated: iaw9d7tj
+DEBUG 2025-04-30 15:45:40,512 models models.py 14 Generated path: iaw9d7tj
+DEBUG 2025-04-30 15:45:40,513 models models.py 17 Generated shortened URL: http://127.0.0.1:8000/iaw9d7tj
+INFO 2025-04-30 15:45:40,513 models models.py 20 Saving new URL: http://127.0.0.1:8000/iaw9d7tj redirecting to https://www.aliexpress.com/

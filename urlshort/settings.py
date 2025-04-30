@@ -128,3 +128,48 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOGIN_URL = "/accounts/login/"
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "verbose": {
+            "format": "{levelname} {asctime} {module} {filename} {lineno} {message}",
+            "style": "{",  # użycie f-stringowego stylu formatowania
+        },
+        "simple": {
+            "format": "{levelname} {message}",
+            "style": "{",
+        },
+    },
+    "handlers": {
+        "console": {
+            "level": "DEBUG",  # Poziom logowania
+            "class": "logging.StreamHandler",  # Wysyła logi do konsoli
+            "formatter": "verbose",  # Używamy formatu 'verbose' dla logów w konsoli
+        },
+        "file": {
+            "level": "DEBUG",  # Zapisuje logi od poziomu ERROR
+            "class": "logging.FileHandler",  # Logi będą zapisywane do pliku
+            "filename": "django_logs.log",  # Ścieżka do pliku
+            "formatter": "verbose",  # Używamy prostego formatu do pliku
+        },
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["console"],  # Logi będą wyświetlane w konsoli
+            "level": "INFO",  # Logowanie na poziomie DEBUG
+            "propagate": True,
+        },
+        "django.request": {
+            "handlers": ["file"],  # Logi będą zapisywane do pliku
+            "level": "ERROR",  # Tylko logi ERROR i wyższe
+            "propagate": False,
+        },
+        "shortener": {  # Upewnij się, że logger twojej aplikacji jest skonfigurowany
+            "handlers": ["file"],
+            "level": "DEBUG",  # Możesz ustawić na 'DEBUG', żeby logować wszystkie poziomy
+            "propagate": False,
+        },
+    },
+}

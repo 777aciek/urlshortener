@@ -2,6 +2,9 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Urls
 from .forms import UrlsForm
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 @login_required
@@ -23,6 +26,9 @@ def add_url(request):
             if existing_url:
 
                 new_shortened_url = existing_url.shortened_url
+                logger.warning(
+                    f"URL with redirect {redirect_to} already exists. Skipping save."
+                )
             else:
 
                 new_url = form.save()
