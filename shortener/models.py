@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 import string, random, logging
 
 logger = logging.getLogger(__name__)
@@ -14,7 +15,7 @@ class Urls(models.Model):
             self.path = self.generate_path()
             logger.debug(f"Generated path: {self.path}")
 
-        self.shortened_url = f"http://127.0.0.1:8000/{self.path}"
+        self.shortened_url = f"{settings.URL_ADDRESS}{self.path}"
         logger.debug(f"Generated shortened URL: {self.shortened_url}")
 
         if not Urls.objects.filter(redirect_to=self.redirect_to).exists():

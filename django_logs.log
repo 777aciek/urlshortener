@@ -15,3 +15,39 @@ DEBUG 2025-04-30 15:45:40,512 models models.py 28 Unique path generated: iaw9d7t
 DEBUG 2025-04-30 15:45:40,512 models models.py 14 Generated path: iaw9d7tj
 DEBUG 2025-04-30 15:45:40,513 models models.py 17 Generated shortened URL: http://127.0.0.1:8000/iaw9d7tj
 INFO 2025-04-30 15:45:40,513 models models.py 20 Saving new URL: http://127.0.0.1:8000/iaw9d7tj redirecting to https://www.aliexpress.com/
+DEBUG 2025-04-30 19:29:11,886 models models.py 28 Starting path generation...
+DEBUG 2025-04-30 19:29:11,887 models models.py 32 Unique path generated: D1DkN6rc
+DEBUG 2025-04-30 19:29:11,888 models models.py 16 Generated path: D1DkN6rc
+DEBUG 2025-04-30 19:29:11,888 models models.py 19 Generated shortened URL: settings.URL_ADDRESSD1DkN6rc
+INFO 2025-04-30 19:29:11,888 models models.py 22 Saving new URL: settings.URL_ADDRESSD1DkN6rc redirecting to https://www.google.com/search?client=firefox-b-d&q=t%C5%82umacz
+DEBUG 2025-04-30 19:29:56,618 models models.py 28 Starting path generation...
+DEBUG 2025-04-30 19:29:56,619 models models.py 32 Unique path generated: 0GyRpMvg
+DEBUG 2025-04-30 19:29:56,619 models models.py 16 Generated path: 0GyRpMvg
+ERROR 2025-04-30 19:29:56,650 log log.py 248 Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/contrib/auth/decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/code/shortener/views.py", line 34, in add_url
+    new_url = form.save()
+              ^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/forms/models.py", line 554, in save
+    self.instance.save()
+  File "/code/shortener/models.py", line 18, in save
+    self.shortened_url = f"{settings.URL_ADDRESS}{self.path}"
+                            ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/conf/__init__.py", line 83, in __getattr__
+    val = getattr(_wrapped, name)
+          ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Settings' object has no attribute 'URL_ADDRESS'
+DEBUG 2025-04-30 19:32:20,550 models models.py 28 Starting path generation...
+DEBUG 2025-04-30 19:32:20,551 models models.py 32 Unique path generated: 7h0LDGo1
+DEBUG 2025-04-30 19:32:20,551 models models.py 16 Generated path: 7h0LDGo1
+DEBUG 2025-04-30 19:32:20,551 models models.py 19 Generated shortened URL: http://127.0.0.1:8000/7h0LDGo1
+INFO 2025-04-30 19:32:20,552 models models.py 22 Saving new URL: http://127.0.0.1:8000/7h0LDGo1 redirecting to https://pypi.org/project/moviepy/
